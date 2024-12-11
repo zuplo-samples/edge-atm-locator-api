@@ -5,7 +5,7 @@
     "title": "My Zuplo API"
   },
   "paths": {
-    "/api/atm": {
+    "/api/atms": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },
@@ -15,7 +15,7 @@
         "parameters": [
           {
             "name": "lat",
-            "in":"query",
+            "in": "query",
             "required": true,
             "description": "Latitude of search location",
             "schema": {
@@ -24,7 +24,7 @@
           },
           {
             "name": "lng",
-            "in":"query",
+            "in": "query",
             "required": true,
             "description": "Longitude of search location",
             "schema": {
@@ -33,7 +33,7 @@
           },
           {
             "name": "radius",
-            "in":"query",
+            "in": "query",
             "required": true,
             "description": "Search radius in miles",
             "schema": {
