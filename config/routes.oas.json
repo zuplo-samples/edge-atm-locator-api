@@ -1,0 +1,59 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "My Zuplo API"
+  },
+  "paths": {
+    "/api/atm": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Get ATMs",
+        "description": "Get all ATMs in a given radius from a provided lat-long location",
+        "parameters": [
+          {
+            "name": "lat",
+            "in":"query",
+            "required": true,
+            "description": "Latitude of search location",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lng",
+            "in":"query",
+            "required": true,
+            "description": "Longitude of search location",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "radius",
+            "in":"query",
+            "required": true,
+            "description": "Search radius in miles",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "x-zuplo-route": {
+          "corsPolicy": "anything-goes",
+          "handler": {
+            "export": "default",
+            "module": "$import(./modules/atms)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "ebab30ef-b0d2-4655-a0ea-189c24963f1b"
+      }
+    }
+  }
+}

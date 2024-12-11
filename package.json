@@ -1,0 +1,19 @@
+{
+  "name": "edge-atm-locator",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "zup dev",
+    "test": "zup test",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "zuplo": "6.22.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "prettier": "^3",
+    "typescript": "^5"
+  }
+}
