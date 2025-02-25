@@ -81,7 +81,9 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
   const cache = new ZoneCache("atm-cache", context);
 
   const cachedResponse = await cache.get(cacheKey);
+  context.log.info("Cache key:", cacheKey);
   if (cachedResponse) {
+    context.log.info("Cache hit for key:", cacheKey);
     return new Response(JSON.stringify(cachedResponse), {status: 200,  headers: {"cache-hit": "true"}});
   }
 
@@ -139,9 +141,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
       }))
       .filter((atm: ATM) => atm.distance <= radius);
     
-    if (nearbyATMs.length >= 50) {
       cache.put(cacheKey, nearbyATMs, 60);
-    }
 
 
     return new Response(JSON.stringify(nearbyATMs), {status: 200})
