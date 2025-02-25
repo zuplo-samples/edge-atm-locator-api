@@ -102,7 +102,7 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
   const query = `SELECT * FROM atms
          WHERE lat BETWEEN ? AND ?
          AND long BETWEEN ? AND ?
-         LIMIT 50`;
+         LIMIT 10`;
   const params = [minLat, maxLat, minLng, maxLng];
 
   try {
